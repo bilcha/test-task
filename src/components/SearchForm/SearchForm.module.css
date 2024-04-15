@@ -1,19 +1,39 @@
+@import 'css/var.css';
+
+.searchForm {
+  width: 360px;
+}
+
 .inputField {
-  width: 250px;
-  border: 1px solid #c6c6c6;
-  border-radius: 3px 0 0 3px;
-  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  /* background-image: url('../../img/sprite.svg#map-pin'); */
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 44px;
+}
+
+.filterIcon {
+  padding: 10px;
+  border-radius: 10px;
+  border-color: var(--main-color);
+  opacity: 20%;
+}
+
+.icon {
+  fill: var(--main-color);
 }
 
 .searchBtn {
+  padding: 16px 60px;
   border: none;
-  padding: 5px 16px;
-  border-radius: 0 3px 3px 0;
-  background-color: #016c01;
+  border-radius: 200px;
+  background-color: var(--button-color);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 }
 
+
 .searchBtn:hover {
-  background-color: #0fab0f;
+  background-color: var(--button-hover-color);
 }

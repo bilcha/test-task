@@ -1,0 +1,51 @@
+@import-normalize;
+/* bring in normalize.css styles */
+
+@import './var.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.container {
+  padding: 100px 64px;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  background-color: var(--input-color);
+  padding: 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16;
+  line-height: 20px;
+  color: var(--main-color);
+}
+
+input::placeholder {
+  color: var(--main-color);
+  opacity: 60%;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600px;
+  color: var(--main-color);
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600px;
+  color: var(--main-color);
+}

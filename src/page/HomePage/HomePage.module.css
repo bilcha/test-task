@@ -1,4 +1,4 @@
-.homePageWrapper {
-  padding-left: 20px;
-  padding-top: 20px;
+.flexWrapper {
+  display: flex;
+  gap: 64px;
 }

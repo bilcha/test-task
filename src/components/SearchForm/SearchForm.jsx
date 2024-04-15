@@ -1,28 +1,18 @@
-import { useState } from 'react';
 import styles from './SearchForm.module.css';
 
-const SearchForm = ({ getMoviesByName }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const searchMovieHandler = e => {
-    e.preventDefault();
-    searchQuery.length > 0 && getMoviesByName(searchQuery);
-  };
-  const handleChange = e => {
-    setSearchQuery(e.target.value.trim());
-  };
+const SearchForm = () => {
   return (
-    <form onSubmit={searchMovieHandler}>
-      <label htmlFor="movieSearch"></label>
+    <form className={styles.searchForm}>
+      <label htmlFor="location">Location</label>
       <input
+        id="location"
         className={styles.inputField}
-        id="movieSearch"
-        type="search"
-        name="name"
-        required
-        value={searchQuery}
-        onChange={handleChange}
+        placeholder="City"
+        type="text"
       />
+
+      <h2>Vehicle equipment</h2>
+      <h2>Vehicle type</h2>
       <button className={styles.searchBtn}>Search</button>
     </form>
   );
