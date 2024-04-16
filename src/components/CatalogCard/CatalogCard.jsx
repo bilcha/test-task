@@ -5,7 +5,7 @@ const CatalogCard = () => {
   return (
     <div className={styles.card}>
       <div className={styles.cardImgWrapper}>
-        <img className={styles.cardImg} />
+        <img className={styles.cardImg} alt="Camper" />
         {/*  src="${item.imgURL}" alt="${item.name}" */}
       </div>
       <div className={styles.cardDescription}>
