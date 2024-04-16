@@ -4,13 +4,17 @@
   width: 360px;
 }
 
-.inputField {
-  width: 100%;
-  box-sizing: border-box;
-  /* background-image: url('../../img/sprite.svg#map-pin'); */
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding-left: 44px;
+.filtersLabel {
+  color: #475467;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.searchHeader {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
 }
 
 .filterIcon {
@@ -24,13 +28,17 @@
   fill: var(--main-color);
 }
 
+
+
 .searchBtn {
   padding: 16px 60px;
+  margin-top: 64px;
   border: none;
   border-radius: 200px;
   background-color: var(--button-color);
   color: #fff;
   font-weight: 500;
+
 }
 
 

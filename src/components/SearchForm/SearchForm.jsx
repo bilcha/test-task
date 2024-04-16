@@ -1,18 +1,18 @@
 import styles from './SearchForm.module.css';
+import SearchField from 'components/SearchField/SearchField';
+import VehicleType from 'components/VehicleType/VehicleType';
+import VehicleEquipment from 'components/VehicleEquipment/VehicleEquipment';
 
 const SearchForm = () => {
   return (
     <form className={styles.searchForm}>
-      <label htmlFor="location">Location</label>
-      <input
-        id="location"
-        className={styles.inputField}
-        placeholder="City"
-        type="text"
-      />
+      <SearchField />
+      <p className={styles.filtersLabel}>Filters</p>
+      <h2 className={styles.searchHeader}>Vehicle equipment</h2>
+      <VehicleEquipment />
 
-      <h2>Vehicle equipment</h2>
-      <h2>Vehicle type</h2>
+      <h2 className={styles.searchHeader}>Vehicle type</h2>
+      <VehicleType />
       <button className={styles.searchBtn}>Search</button>
     </form>
   );
