@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/775.9e2e5418.chunk.js","mappings":"qIAMA,UAJoB,WAClB,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,eACd,C","sources":["page/CatalogPage/CatalogPage.jsx"],"sourcesContent":["import React from 'react';\n\nconst CatalogPage = () => {\n  return <div>CatalogPage</div>;\n};\n\nexport default CatalogPage;\n"],"names":["_jsx","children"],"sourceRoot":""}
