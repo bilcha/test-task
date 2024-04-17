@@ -1,9 +1,6 @@
-import styles from './EquipmentIcons.module.css';
-
 const AutomaticIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className={styles.icon}
     viewBox="0 0 20 20"
     width="32px"
     height="32px"

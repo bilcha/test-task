@@ -1,9 +1,9 @@
 import styles from './MapPin.module.css';
 
-const MapPin = () => (
+const MapPin = ({ styleValue }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className={styles.icon}
+    className={styles[styleValue]}
     viewBox="0 0 20 20"
     width="18px"
     height="20px"

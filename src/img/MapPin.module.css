@@ -1,7 +1,11 @@
-.icon {
+.inputProp {
   position: absolute;
   top: 52px;
   left: 18px;
   transform: translateY(-50%);
   opacity: 60%;
+}
+
+.default {
+  opacity: 1
 }

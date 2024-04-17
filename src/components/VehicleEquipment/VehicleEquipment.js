@@ -1,10 +1,10 @@
 import styles from './VehicleEquipment.module.css';
 import EquipmentCheckbox from 'components/EquipmentCheckbox/EquipmentCheckbox';
-import TvIcon from 'components/EquipmentIcons/TvIcon.js';
-import ShowerIcon from 'components/EquipmentIcons/ShowerIcon';
-import KitchenIcon from 'components/EquipmentIcons/KitchenIcon';
-import AutomaticIcon from 'components/EquipmentIcons/AutomaticIcon';
-import ACIcon from 'components/EquipmentIcons/ACIcon';
+import TvIcon from 'components/Icons/TvIcon.js';
+import ShowerIcon from 'components/Icons/ShowerIcon';
+import KitchenIcon from 'components/Icons/KitchenIcon';
+import AutomaticIcon from 'components/Icons/AutomaticIcon';
+import ACIcon from 'components/Icons/ACIcon';
 
 const VehicleEquipment = () => {
   return (

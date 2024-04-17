@@ -12,9 +12,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,6 +22,7 @@ body {
   padding: 10px 64px 100px;
   width: 1440px;
   margin: auto;
+  box-sizing: border-box;
 }
 
 button {
@@ -45,7 +44,7 @@ button {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 input::placeholder {

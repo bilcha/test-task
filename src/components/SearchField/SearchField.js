@@ -13,7 +13,7 @@ const SearchField = () => {
         placeholder="City"
         type="text"
       />
-      <MapPin />
+      <MapPin styleValue="inputProp" />
     </div>
   );
 };
