@@ -1,5 +1,4 @@
 export const handleFulfilledData = (state, { payload }) => {
-  debugger;
   if (state.currentPage === 1) {
     state.campersData = payload;
   } else {
