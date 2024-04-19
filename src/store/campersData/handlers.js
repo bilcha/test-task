@@ -1,6 +1,12 @@
 export const handleFulfilledData = (state, { payload }) => {
-  state.campersData = payload;
+  debugger;
+  if (state.currentPage === 1) {
+    state.campersData = payload;
+  } else {
+    state.campersData.push(...payload);
+  }
   state.isLoading = false;
+  state.currentPage += 1;
 };
 export const handlePending = state => {
   state.isLoading = true;

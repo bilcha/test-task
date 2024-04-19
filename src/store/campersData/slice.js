@@ -6,6 +6,7 @@ const dataSlice = createSlice({
   name: 'campersData',
   initialState: {
     campersData: [],
+    currentPage: 0,
     isLoading: false,
     error: null,
   },

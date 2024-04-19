@@ -43,6 +43,11 @@
   width: 100%;
 }
 
+.favIcon {
+  border: none;
+  background-color: #fff;
+}
+
 .cardHeaderPrice {
   gap: 10px;
 }
@@ -57,6 +62,11 @@
   font-weight: 600;
 }
 
+.categoryPinsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
 .cardBtn {
   padding: 16px 40px;
