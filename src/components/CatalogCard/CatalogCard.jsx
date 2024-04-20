@@ -4,9 +4,26 @@ import noImage from 'img/no_image.png';
 import RatingLocation from 'components/RatingLocation/RatingLocation';
 import { useState } from 'react';
 import CategoryPin from 'components/CategoryPin/CategoryPin';
+import Modal from 'components/Modal/Modal';
+import { useDispatch } from 'react-redux';
+import { removeSelectedCamper } from 'store/campersData/slice';
 
 const CatalogCard = ({ data }) => {
   const [iconStyle, setIconStyle] = useState('defaultStyle');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const dispatch = useDispatch();
+  const openPopup = e => {
+    setIsPopupOpen(true);
+    debugger;
+    dispatch(e.dataSet);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+
+    dispatch(removeSelectedCamper());
+  };
+
   const addToFavoriteHandler = e => {
     setIconStyle(prev =>
       prev === 'defaultStyle' ? 'selectedStyle' : 'defaultStyle'
@@ -50,7 +67,9 @@ const CatalogCard = ({ data }) => {
             return componentData;
           })}
         </div>
-        <button className={styles.cardBtn}>Show more</button>
+        <button className={styles.cardBtn} dataSet={data} onClick={openPopup}>
+          Show more
+        </button>
       </div>
     </div>
   );

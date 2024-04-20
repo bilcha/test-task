@@ -4,8 +4,12 @@ import VehicleType from 'components/VehicleType/VehicleType';
 import VehicleEquipment from 'components/VehicleEquipment/VehicleEquipment';
 
 const SearchForm = () => {
+  const searchBtnHandler = e => {
+    e.preventDefault();
+    debugger;
+  };
   return (
-    <form className={styles.searchForm}>
+    <form className={styles.searchForm} onSubmit={searchBtnHandler}>
       <SearchField />
       <p className={styles.filtersLabel}>Filters</p>
       <h2 className={styles.searchHeader}>Vehicle equipment</h2>
