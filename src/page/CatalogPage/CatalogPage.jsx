@@ -1,7 +1,12 @@
-import React from 'react';
+import Catalog from 'components/Catalog/Catalog';
+import styles from './CatalogPage.module.css';
 
 const CatalogPage = () => {
-  return <div>CatalogPage</div>;
+  return (
+    <div className={styles.catalogPageWrapper}>
+      <Catalog />
+    </div>
+  );
 };
 
 export default CatalogPage;

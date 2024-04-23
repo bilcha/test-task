@@ -2,32 +2,31 @@ import FavoriteIcon from 'img/FavoriteIcon';
 import styles from './CatalogCard.module.css';
 import noImage from 'img/no_image.png';
 import RatingLocation from 'components/RatingLocation/RatingLocation';
-import { useState } from 'react';
 import CategoryPin from 'components/CategoryPin/CategoryPin';
-import Modal from 'components/Modal/Modal';
-import { useDispatch } from 'react-redux';
-import { removeSelectedCamper } from 'store/campersData/slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addSelectedCamper } from 'store/campersData/actionFile';
+import { addToFavorite, removeFavorite } from 'store/favorite/slice';
+import { selectorFavorite } from 'store/selectors';
 
 const CatalogCard = ({ data }) => {
-  const [iconStyle, setIconStyle] = useState('defaultStyle');
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const dispatch = useDispatch();
-  const openPopup = e => {
-    setIsPopupOpen(true);
-    debugger;
-    dispatch(e.dataSet);
+
+  const favorite = useSelector(selectorFavorite);
+
+  const checkIfFavorite = () => {
+    const isDatainFav = favorite.some(item => item._id === data._id);
+    return isDatainFav ? 'selectedStyle' : 'defaultStyle';
+  };
+  const handleSelectCamper = data => {
+    dispatch(addSelectedCamper(data));
   };
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
-
-    dispatch(removeSelectedCamper());
-  };
-
-  const addToFavoriteHandler = e => {
-    setIconStyle(prev =>
-      prev === 'defaultStyle' ? 'selectedStyle' : 'defaultStyle'
-    );
+  const favoriteDataHandler = data => {
+    if (favorite.includes(data)) {
+      dispatch(removeFavorite(data));
+    } else {
+      dispatch(addToFavorite(data));
+    }
   };
 
   return (
@@ -49,8 +48,11 @@ const CatalogCard = ({ data }) => {
           <div className={styles.cardHeaderPrice}>
             <p className={styles.price}>&euro; {data.price.toFixed(2)}</p>
 
-            <button className={styles.favIcon} onClick={addToFavoriteHandler}>
-              <FavoriteIcon styleValue={iconStyle} />
+            <button
+              className={styles.favIcon}
+              onClick={() => favoriteDataHandler(data)}
+            >
+              <FavoriteIcon styleValue={checkIfFavorite()} />
             </button>
           </div>
         </div>
@@ -67,7 +69,10 @@ const CatalogCard = ({ data }) => {
             return componentData;
           })}
         </div>
-        <button className={styles.cardBtn} dataSet={data} onClick={openPopup}>
+        <button
+          className={styles.cardBtn}
+          onClick={() => handleSelectCamper(data)}
+        >
           Show more
         </button>
       </div>

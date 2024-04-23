@@ -16,7 +16,6 @@ const Catalog = () => {
   let currentPage = useSelector(selectorPage);
 
   const loadMoreHandler = () => {
-    // dispatch(handlePageCount());
     dispatch(getCamperDataThunk(currentPage));
   };
   const data = useSelector(campersData);

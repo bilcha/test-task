@@ -1,7 +1,12 @@
-import React from 'react';
+import Favorite from 'components/Favorite/Favorite';
+import styles from './FavoritesPage.module.css';
 
 const FavoritesPage = () => {
-  return <div>FavoritesPage</div>;
+  return (
+    <div className={styles.pageWrapper}>
+      <Favorite />
+    </div>
+  );
 };
 
 export default FavoritesPage;

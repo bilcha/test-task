@@ -1,7 +1,7 @@
 import { campersReducer } from './campersData/slice.js';
-// import { favoriveReducer } from './filter/slice.js';
+import persistedFavoriteReducer from './favorite/persistedFavoriteReducer.js';
 
 export const reducer = {
   campersData: campersReducer,
-  // favorive: favoriveReducer,
+  favorite: persistedFavoriteReducer,
 };

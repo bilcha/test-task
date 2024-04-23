@@ -1,11 +1,12 @@
-import React from 'react';
+import styles from './Modal.module.css';
 
 const Modal = ({ onClose }) => {
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <h2>Popup Content</h2>
-        <button onClick={onClose}>Close</button>
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+        <h2>Modal Title</h2>
+        <p>This is the modal content.</p>
+        <button onClick={onClose}>Close Modal</button>
       </div>
     </div>
   );

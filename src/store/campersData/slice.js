@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handleFulfilledData, handlePending, handleRejected } from './handlers';
 import { getCamperDataThunk } from './thunk';
+import { addSelectedCamper, removeSelectedCamper } from './actionFile.js';
 
 const dataSlice = createSlice({
   name: 'campersData',
@@ -15,14 +16,14 @@ const dataSlice = createSlice({
     builder
       .addCase(getCamperDataThunk.fulfilled, handleFulfilledData)
       .addCase(addSelectedCamper, (state, action) => {
-        state.selectedCamper = action.payload;
+        state.camperSelected = action.payload;
       })
       .addCase(removeSelectedCamper, state => {
-        state.selectedCamper = null;
+        state.camperSelected = null;
       })
       .addMatcher(action => action.type.endsWith('pending'), handlePending)
       .addMatcher(action => action.type.endsWith('rejected'), handleRejected);
   },
 });
-export const { addSelectedCamper, removeSelectedCamper } = dataSlice.actions;
+
 export const campersReducer = dataSlice.reducer;
