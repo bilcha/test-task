@@ -1,10 +1,9 @@
 import MainLayout from 'layouts/MainLayout/MainLayout';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { lazy, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectorSelectedCamp } from 'store/selectors';
 import Modal from './Modal/Modal';
-import { removeSelectedCamper } from 'store/campersData/actionFile';
 
 const HomePage = lazy(() => import('page/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('page/CatalogPage/CatalogPage'));
@@ -13,17 +12,9 @@ const FavoritesPage = lazy(() => import('page/FavoritesPage/FavoritesPage'));
 const App = () => {
   const selectedCamper = useSelector(selectorSelectedCamp);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const dispatch = useDispatch();
   useEffect(() => {
-    if (selectedCamper) {
-      setIsModalOpen(true);
-    }
+    selectedCamper ? setIsModalOpen(true) : setIsModalOpen(false);
   }, [selectedCamper]);
-  const closePopup = () => {
-    setIsModalOpen(false);
-    dispatch(removeSelectedCamper());
-  };
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -34,10 +25,10 @@ const App = () => {
 
           <Route path="favorites" element={<FavoritesPage />} />
 
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
-      {isModalOpen && <Modal onClose={closeModal} />}
+      {isModalOpen && <Modal />}
     </>
   );
 };

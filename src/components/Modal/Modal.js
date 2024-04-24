@@ -1,13 +1,18 @@
+import { useDispatch } from 'react-redux';
 import styles from './Modal.module.css';
+import { removeSelectedCamper } from 'store/campersData/actionFile';
+import { Outlet } from 'react-router-dom';
+import ModalContent from 'components/ModalContent/ModalContent';
 
-const Modal = ({ onClose }) => {
+const Modal = () => {
+  const dispatch = useDispatch();
+  const closeModal = () => {
+    dispatch(removeSelectedCamper());
+  };
   return (
-    <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-        <h2>Modal Title</h2>
-        <p>This is the modal content.</p>
-        <button onClick={onClose}>Close Modal</button>
-      </div>
+    <div className={styles.modalOverlay} onClick={closeModal}>
+      <ModalContent />
+      <Outlet />
     </div>
   );
 };
