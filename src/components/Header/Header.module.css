@@ -17,6 +17,7 @@
 .navLink>a {
   text-decoration: none;
   color: var(--main-color);
+  display: block;
 }
 
 .navLink>a:hover {

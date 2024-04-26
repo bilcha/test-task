@@ -7,7 +7,7 @@ const dataSlice = createSlice({
   name: 'campersData',
   initialState: {
     campersData: [],
-    currentPage: 0,
+    currentPage: 1,
     camperSelected: null,
     isLoading: false,
     error: null,
