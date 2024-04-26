@@ -27,21 +27,3 @@
 .icon {
   fill: var(--main-color);
 }
-
-
-
-.searchBtn {
-  padding: 16px 60px;
-  margin-top: 64px;
-  border: none;
-  border-radius: 200px;
-  background-color: var(--button-color);
-  color: #fff;
-  font-weight: 500;
-
-}
-
-
-.searchBtn:hover {
-  background-color: var(--button-hover-color);
-}

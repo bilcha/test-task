@@ -29,6 +29,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  color: var(--text-color);
 }
 
 
@@ -60,12 +61,6 @@
   font-size: 24px;
   line-height: 30px;
   font-weight: 600;
-}
-
-.categoryPinsWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .cardBtn {

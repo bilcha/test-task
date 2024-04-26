@@ -5,13 +5,22 @@ import { removeSelectedCamper } from 'store/campersData/actionFile';
 import { ReactComponent as CloseIcon } from '../../img/svg/closeIcon.svg';
 import { selectorSelectedCamp } from 'store/selectors';
 import RatingLocation from 'components/RatingLocation/RatingLocation';
+import { useState } from 'react';
+import BookForm from 'components/BookForm/BookForm';
+import Features from 'components/Features/Features';
+import Reviews from 'components/Reviews/Reviews';
 
 const ModalContent = () => {
+  const [activeButton, setActiveButton] = useState(null);
   const dispatch = useDispatch();
+
   const closeModal = () => {
     dispatch(removeSelectedCamper());
   };
   let selectedCamper = useSelector(selectorSelectedCamp);
+  const showDetails = text => {
+    setActiveButton(prev => (prev === text ? null : text));
+  };
 
   const getGalleryItems = gallery => {
     if (gallery.length > 0) {
@@ -48,6 +57,35 @@ const ModalContent = () => {
           <p className={styles.camperDescription}>
             {selectedCamper.description}
           </p>
+          <div className={styles.buttonWrapper}>
+            <button
+              className={`${styles.modalDetailBtn} ${
+                activeButton === 'Features' && styles.activeBtn
+              }`}
+              onClick={() => showDetails('Features')}
+            >
+              Features
+            </button>
+            <button
+              className={`${styles.modalDetailBtn} ${
+                activeButton === 'Reviews' && styles.activeBtn
+              }`}
+              onClick={() => showDetails('Reviews')}
+            >
+              Reviews
+            </button>
+          </div>
+          {activeButton && (
+            <div className={styles.detailsWrapper} details={selectedCamper}>
+              {activeButton === 'Features' && (
+                <Features data={selectedCamper} />
+              )}
+              {activeButton === 'Reviews' && (
+                <Reviews data={selectedCamper.reviews} />
+              )}
+              <BookForm />
+            </div>
+          )}
         </div>
       </div>
     )

@@ -2,11 +2,11 @@ import FavoriteIcon from 'img/FavoriteIcon';
 import styles from './CatalogCard.module.css';
 import noImage from 'img/no_image.png';
 import RatingLocation from 'components/RatingLocation/RatingLocation';
-import CategoryPin from 'components/CategoryPin/CategoryPin';
 import { useDispatch, useSelector } from 'react-redux';
 import { addSelectedCamper } from 'store/campersData/actionFile';
 import { addToFavorite, removeFavorite } from 'store/favorite/slice';
 import { selectorFavorite } from 'store/selectors';
+import VehicleFeatures from 'components/VehicleFeatures/VehicleFeatures';
 
 const CatalogCard = ({ data }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,8 @@ const CatalogCard = ({ data }) => {
   };
 
   const favoriteDataHandler = data => {
-    if (favorite.includes(data)) {
+    const isDataInFavorites = favorite.some(item => item._id === data._id);
+    if (isDataInFavorites) {
       dispatch(removeFavorite(data));
     } else {
       dispatch(addToFavorite(data));
@@ -58,17 +59,8 @@ const CatalogCard = ({ data }) => {
         </div>
         <RatingLocation data={data} />
         <p className={styles.cardDescription}>{data.description}</p>
-        <div className={styles.categoryPinsWrapper}>
-          {Object.keys(data.details).map((key, val) => {
-            let componentData = null;
-            if (val > 0) {
-              componentData = (
-                <CategoryPin nameData={key} quantity={val} key={key} />
-              );
-            }
-            return componentData;
-          })}
-        </div>
+        <VehicleFeatures data={data.details} />
+
         <button
           className={styles.cardBtn}
           onClick={() => handleSelectCamper(data)}

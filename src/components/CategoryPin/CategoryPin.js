@@ -37,7 +37,7 @@ const CategoryPin = ({ nameData, quantity }) => {
     <div className={styles.pinWrapper}>
       {dataPin[nameData] && dataPin[nameData].component}
       {quantity > 1 && <p>{quantity}</p>}
-      <p>{dataPin[nameData].name}</p>
+      {dataPin[nameData] && <p>{dataPin[nameData].name}</p>}
     </div>
   );
 };

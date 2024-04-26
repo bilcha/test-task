@@ -1,15 +1,21 @@
 import MainLayout from 'layouts/MainLayout/MainLayout';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectorSelectedCamp } from 'store/selectors';
 import Modal from './Modal/Modal';
+import { getCamperDataThunk } from 'store/campersData/thunk';
 
 const HomePage = lazy(() => import('page/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('page/CatalogPage/CatalogPage'));
 const FavoritesPage = lazy(() => import('page/FavoritesPage/FavoritesPage'));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCamperDataThunk(1));
+  }, [dispatch]);
   const selectedCamper = useSelector(selectorSelectedCamp);
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
@@ -25,7 +31,7 @@ const App = () => {
 
           <Route path="favorites" element={<FavoritesPage />} />
 
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       {isModalOpen && <Modal />}
