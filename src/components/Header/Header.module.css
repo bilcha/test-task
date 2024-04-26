@@ -7,8 +7,9 @@
 
 .navList {
   display: flex;
+  justify-content: center;
   list-style: none;
-  gap: 40px;
+  gap: 80px;
   font-weight: 800;
   padding-left: 0;
 }
@@ -18,11 +19,6 @@
   color: var(--main-color);
 }
 
-.active {
-  color: var(--star-color)
-}
-
 .navLink>a:hover {
-  text-decoration: underline;
-  color: var(--star-color)
+  color: var(--button-hover-color);
 }

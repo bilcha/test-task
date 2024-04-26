@@ -3,3 +3,8 @@
   flex-direction: column;
   gap: 32px;
 }
+
+.message {
+  padding-top: 40px;
+  text-align: center;
+}
